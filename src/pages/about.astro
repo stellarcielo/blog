@@ -1,24 +1,67 @@
 ---
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Strelitzia</title>
-</head>
-<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+<Layout title="About — stellarcielo">
+  <section style="max-width: 800px; margin: 0 auto; padding: 5rem 2rem;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 1rem;">
+      // ABOUT.md
+    </div>
 
-    <h1>About</h1>
-    <h2>...and about of my new astro site!</h2>
+    <h1 style="font-size: 3rem; font-weight: 800; margin: 0 0 3rem; color: var(--text);">
+      自己紹介
+    </h1>
 
-    <p>Im going to do Astro tutorial, this is second website of my site</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+      <div>
+        <p style="color: var(--muted); line-height: 1.9; font-size: 0.95rem;">
+          はじめまして。stellarcieloです。<br /><br />
+          東京を拠点に活動するフルスタックエンジニアです。
+          Webアプリケーションの設計・開発を中心に、
+          ユーザー体験とコードの品質にこだわったプロダクト作りをしています。
+        </p>
 
-    <p>addd</p>
-</body>
-</html>
+        <div style="margin-top: 2.5rem;">
+          <div style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 1rem;">
+            // PROFILE
+          </div>
+          {[
+            ['所在地', '東京'],
+            ['専門', 'Web開発'],
+            ['好きな言語', 'TypeScript, Rust'],
+            ['趣味', 'OSS, 読書, コーヒー'],
+          ].map(([k, v]) => (
+            <div style="display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem;">
+              <span style="font-family: 'Space Mono', monospace; color: var(--muted); min-width: 80px; font-size: 0.72rem;">{k}</span>
+              <span style="color: var(--text);">{v}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 1rem;">
+          // SKILLS
+        </div>
+        {[
+          { name: 'TypeScript / JavaScript', level: 90 },
+          { name: 'React / Next.js', level: 85 },
+          { name: 'Node.js', level: 80 },
+          { name: 'Python', level: 70 },
+          { name: 'Docker / CI/CD', level: 65 },
+          { name: 'Rust', level: 40 },
+        ].map(skill => (
+          <div style="margin-bottom: 1.2rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.82rem; color: var(--text);">{skill.name}</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted);">{skill.level}%</span>
+            </div>
+            <div style="height: 2px; background: var(--border); position: relative;">
+              <div style={`width: ${skill.level}%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); box-shadow: 0 0 8px rgba(0, 229, 255, 0.4);`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

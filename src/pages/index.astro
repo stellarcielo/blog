@@ -1,19 +1,194 @@
 ---
+import Layout from '../layouts/Layout.astro';
+
+const skills = ['TypeScript', 'React', 'Node.js', 'Python', 'Rust', 'Docker'];
+const stats = [
+  { label: 'PROJECTS', value: '12+' },
+  { label: 'YEARS EXP', value: '3+' },
+  { label: 'COMMITS', value: '1.2K' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} >
-		<title>Strelitzia</title>
-	</head>
-	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+<Layout title="stellarcielo — Portfolio">
+  <!-- Hero Section -->
+  <section style="
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  ">
+    <div style="
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    ">
+      // HELLO WORLD
+    </div>
 
-		<h1>Strelitzia Blog</h1>
-	</body>
-</html>
+    <h1 style="
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 0 0 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    ">
+      <span style="color: var(--text)">stellar</span><br />
+      <span style="
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      ">cielo</span>
+    </h1>
+
+    <p style="
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.7;
+      margin: 0 0 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.35s forwards;
+    ">
+      フルスタックエンジニア。コードで問題を解決し、
+      美しいプロダクトを作ることが好きです。
+    </p>
+
+    <!-- Skills -->
+    <div style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.45s forwards;
+    ">
+      {skills.map(skill => (
+        <span style="
+          font-family: 'Space Mono', monospace;
+          font-size: 0.72rem;
+          padding: 0.4rem 0.9rem;
+          border: 1px solid var(--border);
+          color: var(--muted);
+          letter-spacing: 0.08em;
+          transition: all 0.2s;
+        " class="skill-tag">
+          {skill}
+        </span>
+      ))}
+    </div>
+
+    <!-- CTA Buttons -->
+    <div style="
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.55s forwards;
+    ">
+      <a href="/works" style="
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        background: var(--accent);
+        color: #000;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        transition: all 0.2s;
+      " class="btn-primary">
+        WORKS →
+      </a>
+      <a href="/contact" style="
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-family: 'Space Mono', monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        transition: all 0.2s;
+      " class="btn-secondary">
+        CONTACT
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div style="
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.65s forwards;
+    ">
+      {stats.map(stat => (
+        <div>
+          <div style="
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+          ">{stat.value}</div>
+          <div style="
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.15em;
+            margin-top: 0.25rem;
+          ">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Decorative grid lines -->
+  <div style="
+    position: fixed;
+    top: 0; right: 0;
+    width: 400px;
+    height: 100vh;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(0, 229, 255, 0.03) 39px,
+      rgba(0, 229, 255, 0.03) 40px
+    );
+    pointer-events: none;
+    z-index: 0;
+  "></div>
+
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4) !important;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+    }
+  </style>
+</Layout>

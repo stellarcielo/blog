@@ -1,0 +1,31 @@
+---
+title: "最初の記事"
+description: "ブログを開設しました。自己紹介と今後書いていくことについて。"
+date: 2024-12-01
+tags: ["雑記", "自己紹介"]
+---
+
+## はじめに
+
+ブログを開設しました。
+
+ここでは技術的なことを中心に、日々の学びや考えたことを書いていきます。
+
+## 書いていく予定のこと
+
+- TypeScript / Rustの実践的なTips
+- Webパフォーマンス最適化
+- 読んだ本の感想
+- OSS活動のこと
+
+## コードも書けます
+
+```typescript
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet('World'));
+```
+
+よろしくお願いします。

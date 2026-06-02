@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const works = [
+  {
+    title: 'Project Alpha',
+    description: 'Webアプリケーションの説明をここに書きます。使用技術やプロジェクトの目的を記載してください。',
+    tags: ['React', 'TypeScript', 'PostgreSQL'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+    year: '2024',
+  },
+  {
+    title: 'Project Beta',
+    description: 'CLIツールの説明をここに書きます。どんな問題を解決するツールか説明してください。',
+    tags: ['Rust', 'CLI'],
+    github: 'https://github.com',
+    demo: null,
+    year: '2024',
+  },
+  {
+    title: 'Project Gamma',
+    description: 'APIサービスの説明をここに書きます。アーキテクチャや規模感なども記載すると良いです。',
+    tags: ['Python', 'FastAPI', 'Docker'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+    year: '2023',
+  },
+];
+---
+
+<Layout title="Works — stellarcielo">
+  <section style="max-width: 1000px; margin: 0 auto; padding: 5rem 2rem;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 1rem;">
+      // WORKS
+    </div>
+    <h1 style="font-size: 3rem; font-weight: 800; margin: 0 0 3rem; color: var(--text);">
+      制作物
+    </h1>
+
+    <div style="display: grid; gap: 1.5rem;">
+      {works.map((work, i) => (
+        <article style="
+          background: var(--surface);
+          border: 1px solid var(--border);
+          padding: 2rem;
+          position: relative;
+          transition: border-color 0.2s, box-shadow 0.2s;
+        " class="work-card">
+          <div style="
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--border);
+            letter-spacing: 0.1em;
+          ">{work.year}</div>
+
+          <div style="
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+          ">PROJECT_{String(i + 1).padStart(2, '0')}</div>
+
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 0.8rem; color: var(--text);">
+            {work.title}
+          </h2>
+
+          <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin: 0 0 1.5rem;">
+            {work.description}
+          </p>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              {work.tags.map(tag => (
+                <span style="
+                  font-family: 'Space Mono', monospace;
+                  font-size: 0.65rem;
+                  padding: 0.3rem 0.7rem;
+                  border: 1px solid var(--border);
+                  color: var(--muted);
+                  letter-spacing: 0.08em;
+                ">{tag}</span>
+              ))}
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+              <a href={work.github} target="_blank" style="
+                font-family: 'Space Mono', monospace;
+                font-size: 0.72rem;
+                color: var(--muted);
+                text-decoration: none;
+                letter-spacing: 0.08em;
+                transition: color 0.2s;
+              " class="work-link">GitHub →</a>
+              {work.demo && (
+                <a href={work.demo} target="_blank" style="
+                  font-family: 'Space Mono', monospace;
+                  font-size: 0.72rem;
+                  color: var(--accent);
+                  text-decoration: none;
+                  letter-spacing: 0.08em;
+                " class="work-link">DEMO →</a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .work-card:hover {
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.08) !important;
+    }
+    .work-link:hover {
+      color: var(--accent) !important;
+    }
+  </style>
+</Layout>
