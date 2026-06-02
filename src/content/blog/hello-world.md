@@ -13,12 +13,10 @@ tags: ["雑記", "自己紹介"]
 
 ## 書いていく予定のこと
 
-- TypeScript / Rustの実践的なTips
-- Webパフォーマンス最適化
-- 読んだ本の感想
-- OSS活動のこと
+- 自宅サーバー関連
+- STM関連　など
 
-## コードも書けます
+## コードも書けます？
 
 ```typescript
 const greet = (name: string): string => {

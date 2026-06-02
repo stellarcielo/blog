@@ -3,29 +3,21 @@ import Layout from '../layouts/Layout.astro';
 
 const works = [
   {
-    title: 'Project Alpha',
-    description: 'Webアプリケーションの説明をここに書きます。使用技術やプロジェクトの目的を記載してください。',
-    tags: ['React', 'TypeScript', 'PostgreSQL'],
-    github: 'https://github.com',
-    demo: 'https://example.com',
+    title: 'velocity-hub',
+    description: 'velocityサーバー向けの/hubコマンドを追加するプラグインです。',
+    tags: ['Minecraft', 'velocity', 'plugin'],
+    github: 'https://github.com/stellarcielo/velocity-hub',
+    link: 'https://modrinth.com/plugin/velocity-hub-command',
     year: '2024',
   },
-  {
-    title: 'Project Beta',
-    description: 'CLIツールの説明をここに書きます。どんな問題を解決するツールか説明してください。',
-    tags: ['Rust', 'CLI'],
-    github: 'https://github.com',
-    demo: null,
-    year: '2024',
-  },
-  {
+  /*{
     title: 'Project Gamma',
     description: 'APIサービスの説明をここに書きます。アーキテクチャや規模感なども記載すると良いです。',
     tags: ['Python', 'FastAPI', 'Docker'],
     github: 'https://github.com',
-    demo: 'https://example.com',
+    link: 'https://example.com',
     year: '2023',
-  },
+  },*/
 ];
 ---
 
@@ -95,14 +87,14 @@ const works = [
                 letter-spacing: 0.08em;
                 transition: color 0.2s;
               " class="work-link">GitHub →</a>
-              {work.demo && (
-                <a href={work.demo} target="_blank" style="
+              {work.link && (
+                <a href={work.link} target="_blank" style="
                   font-family: 'Space Mono', monospace;
                   font-size: 0.72rem;
                   color: var(--accent);
                   text-decoration: none;
                   letter-spacing: 0.08em;
-                " class="work-link">DEMO →</a>
+                " class="work-link">LINK →</a>
               )}
             </div>
           </div>

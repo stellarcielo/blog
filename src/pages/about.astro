@@ -16,9 +16,10 @@ import Layout from '../layouts/Layout.astro';
       <div>
         <p style="color: var(--muted); line-height: 1.9; font-size: 0.95rem;">
           はじめまして。stellarcieloです。<br /><br />
-          東京を拠点に活動するフルスタックエンジニアです。
-          Webアプリケーションの設計・開発を中心に、
-          ユーザー体験とコードの品質にこだわったプロダクト作りをしています。
+          まだ学生のなんちゃってインフラエンジニアです。<br />
+          Proxmoxなどを使って仮想化基盤を構築して、色々な検証やマインクラフトなどのサーバーの構築をしています。<br />
+          UbiquitiさんのUnifi製品がとても好きです。<br /><br />
+          ちなみにこのサイトはほぼclaudeくんに書いてもらいました。一回プロンプト書いて質問に答えただけですね。すごいです。もともとAstroの知識は少しあったもののここまで構築したことはありませんでした。
         </p>
 
         <div style="margin-top: 2.5rem;">
@@ -26,10 +27,10 @@ import Layout from '../layouts/Layout.astro';
             // PROFILE
           </div>
           {[
-            ['所在地', '東京'],
-            ['専門', 'Web開発'],
-            ['好きな言語', 'TypeScript, Rust'],
-            ['趣味', 'OSS, 読書, コーヒー'],
+            ['所属', '木更津工業高等専門学校'],
+            ['学科', '情報工学科'],
+            ['まあ使える言語', 'C, Java'],
+            ['趣味', 'ゲーム, 自宅サーバー, 音楽'],
           ].map(([k, v]) => (
             <div style="display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem;">
               <span style="font-family: 'Space Mono', monospace; color: var(--muted); min-width: 80px; font-size: 0.72rem;">{k}</span>
@@ -44,12 +45,12 @@ import Layout from '../layouts/Layout.astro';
           // SKILLS
         </div>
         {[
-          { name: 'TypeScript / JavaScript', level: 90 },
-          { name: 'React / Next.js', level: 85 },
-          { name: 'Node.js', level: 80 },
-          { name: 'Python', level: 70 },
-          { name: 'Docker / CI/CD', level: 65 },
-          { name: 'Rust', level: 40 },
+          { name: 'Unifi Network', level: 80 },
+          { name: 'Proxmox', level: 50 },
+          { name: 'C', level: 40 },
+          { name: 'Python', level: 30 },
+          { name: 'Java', level: 20 },
+          //{ name: 'Rust', level: 40 },
         ].map(skill => (
           <div style="margin-bottom: 1.2rem;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
