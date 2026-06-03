@@ -64,12 +64,12 @@ const { Content } = await render(post);
       color: var(--accent) !important;
     }
 
-    .prose {
+    :global(.prose) {
       color: var(--text);
       font-size: 0.95rem;
       line-height: 1.9;
     }
-    .prose h2 {
+    :global(.prose h2) {
       font-size: 1.5rem;
       font-weight: 700;
       margin: 2.5rem 0 1rem;
@@ -77,21 +77,21 @@ const { Content } = await render(post);
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
-    .prose h3 {
+    :global(.prose h3) {
       font-size: 1.15rem;
       font-weight: 600;
       margin: 2rem 0 0.8rem;
       color: var(--accent);
     }
-    .prose p {
+    :global(.prose p) {
       margin: 0 0 1.2rem;
-      color: var(--muted);
+      color: var(--text);
     }
-    .prose a {
+    :global(.prose a) {
       color: var(--accent);
       text-decoration: underline;
     }
-    .prose code {
+    :global(.prose code) {
       font-family: 'Space Mono', monospace;
       font-size: 0.82em;
       background: var(--surface);
@@ -99,27 +99,27 @@ const { Content } = await render(post);
       padding: 0.15em 0.4em;
       color: var(--accent);
     }
-    .prose pre {
+    :global(.prose pre) {
       background: var(--surface);
       border: 1px solid var(--border);
       padding: 1.5rem;
       overflow-x: auto;
       margin: 1.5rem 0;
     }
-    .prose pre code {
+    :global(.prose pre code) {
       background: none;
       border: none;
       padding: 0;
       font-size: 0.85rem;
       color: var(--text);
     }
-    .prose ul, .prose ol {
+    :global(.prose ul), :global(.prose ol) {
       padding-left: 1.5rem;
       margin: 0 0 1.2rem;
-      color: var(--muted);
+      color: var(--text);
     }
-    .prose li { margin-bottom: 0.4rem; }
-    .prose blockquote {
+    :global(.prose li) { margin-bottom: 0.4rem; }
+    :global(.prose blockquote) {
       border-left: 3px solid var(--accent);
       margin: 1.5rem 0;
       padding: 0.5rem 0 0.5rem 1.5rem;
