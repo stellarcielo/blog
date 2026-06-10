@@ -6,11 +6,13 @@ import sitemap from '@astrojs/sitemap';
 
 import mdx from '@astrojs/mdx';
 
+import react from '@astrojs/react';
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
 
   site: 'https://strelitzia.dev',
-  integrations: [sitemap(), mdx()],
+  integrations: [sitemap(), mdx(), react()],
 });

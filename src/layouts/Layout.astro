@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav';
 
 interface Props {
   title: string;
@@ -8,14 +9,6 @@ interface Props {
 
 const { title, description = 'My Portfolio' } = Astro.props;
 const currentPath = Astro.url.pathname;
-
-const navLinks = [
-  { href: '/', label: 'HOME' },
-  { href: '/about', label: 'ABOUT' },
-  { href: '/works', label: 'WORKS' },
-  { href: '/blog', label: 'BLOG' },
-  { href: '/contact', label: 'CONTACT' },
-];
 ---
 
 <!DOCTYPE html>
@@ -28,55 +21,8 @@ const navLinks = [
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
-  <!-- Navigation -->
-  <nav style="
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background: rgba(8, 12, 16, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  ">
-    <a href="/" style="
-      font-family: 'Space Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-decoration: none;
-    ">
-      &gt; <span style="color: var(--text)">stellarcielo</span><span style="animation: blink 1s step-end infinite; color: var(--accent)">_</span>
-    </a>
-
-    <ul style="
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    ">
-      {navLinks.map(link => (
-        <li>
-          <a
-            href={link.href}
-            style={`
-              font-family: 'Space Mono', monospace;
-              font-size: 0.75rem;
-              letter-spacing: 0.12em;
-              color: ${currentPath === link.href ? 'var(--accent)' : 'var(--muted)'};
-              text-decoration: none;
-              transition: color 0.2s;
-            `}
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
+  <!-- Navigation (Reactコンポーネント) -->
+  <Nav client:load currentPath={currentPath} />
 
   <!-- Main content -->
   <main style="padding-top: 4rem;">
@@ -97,16 +43,5 @@ const navLinks = [
     <span style="margin: 0 1rem; color: var(--border)">|</span>
     <span>Built with Astro + Cloudflare Pages</span>
   </footer>
-
-  <style>
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    nav a:hover {
-      color: var(--accent) !important;
-    }
-  </style>
 </body>
 </html>

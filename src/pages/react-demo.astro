@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Counter from '../components/Counter';
+import SkillBars from '../components/SkillBars';
+---
+
+<Layout title="React Demo — YOUR_NAME">
+  <section style="max-width: 800px; margin: 0 auto; padding: 5rem 2rem;">
+
+    <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 1rem;">
+      // REACT_DEMO
+    </div>
+    <h1 style="font-size: 3rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text);">
+      React in Astro
+    </h1>
+    <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 4rem; line-height: 1.7;">
+      AstroはReactコンポーネントをそのまま使えます。<code style="font-family: 'Space Mono', monospace; font-size: 0.82em; background: var(--surface); border: 1px solid var(--border); padding: 0.15em 0.4em; color: var(--accent);">client:load</code> ディレクティブをつけるとブラウザでインタラクティブになります。
+    </p>
+
+    <!-- Example 1: Counter -->
+    <div style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">
+        useState — カウンター
+      </h2>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.7;">
+        Reactの基本。<code style="font-family: 'Space Mono', monospace; color: var(--accent); font-size: 0.82em;">useState</code> でコンポーネント内の状態を管理します。ボタンを押すと再レンダリングされます。
+      </p>
+      <Counter client:load label="CLICKS" />
+
+      <pre style="margin-top: 1.5rem; background: var(--surface); border: 1px solid var(--border); padding: 1.2rem; overflow-x: auto; font-size: 0.78rem; line-height: 1.7;"><code style="font-family: 'Space Mono', monospace; color: var(--text);">{`// .astro ファイルで読み込む
+import Counter from '../components/Counter';
+
+// client:load をつけるとブラウザで動く
+<Counter client:load label="CLICKS" />`}</code></pre>
+    </div>
+
+    <!-- Example 2: SkillBars -->
+    <div style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">
+        useEffect + IntersectionObserver — スキルバー
+      </h2>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.7;">
+        <code style="font-family: 'Space Mono', monospace; color: var(--accent); font-size: 0.82em;">useEffect</code> で副作用（スクロール検知）を処理。画面に入った瞬間にアニメーションが始まります。
+      </p>
+      <SkillBars client:visible />
+
+      <pre style="margin-top: 1.5rem; background: var(--surface); border: 1px solid var(--border); padding: 1.2rem; overflow-x: auto; font-size: 0.78rem; line-height: 1.7;"><code style="font-family: 'Space Mono', monospace; color: var(--text);">{`// client:visible = 画面に見えたときだけ読み込む（パフォーマンス最適化）
+<SkillBars client:visible />`}</code></pre>
+    </div>
+
+    <!-- Astro Island explanation -->
+    <div style="background: var(--surface); border: 1px solid var(--border); padding: 2rem; margin-top: 2rem;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 1rem;">
+        // ASTRO ISLANDS
+      </div>
+      <p style="color: var(--muted); font-size: 0.85rem; line-height: 1.9; margin: 0;">
+        Astroは <strong style="color: var(--text);">Islands Architecture</strong> を採用しています。<br />
+        デフォルトではHTMLとして静的に出力され、<code style="font-family: 'Space Mono', monospace; color: var(--accent); font-size: 0.82em;">client:*</code> ディレクティブをつけた部分だけJSが動きます。
+        これにより、必要な箇所だけインタラクティブにしつつ、全体のパフォーマンスを保てます。
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        {[
+          ['client:load', 'ページ読み込み時'],
+          ['client:visible', '画面に入ったとき'],
+          ['client:idle', 'ブラウザのアイドル時'],
+          ['client:only', 'SSRをスキップ'],
+        ].map(([directive, desc]) => (
+          <div style="flex: 1; min-width: 160px;">
+            <code style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent);">{directive}</code>
+            <div style="font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem;">{desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </section>
+</Layout>
