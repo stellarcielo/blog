@@ -52,7 +52,7 @@ export default function Nav({ currentPath }: { currentPath: string }) {
           textDecoration: 'none',
         }}>
           {'> '}
-          <span style={{ color: 'var(--text)' }}>YOUR_NAME</span>
+          <span style={{ color: 'var(--text)' }}>stellarcielo</span>
           <span style={{ animation: 'blink 1s step-end infinite', color: 'var(--accent)' }}>_</span>
         </a>
 
